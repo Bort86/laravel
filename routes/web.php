@@ -38,3 +38,4 @@ Route::get('/', function () {
 Route::view('/', 'welcome', array('name'=>'PROVEN', 'year'=>'2019'))->name('vista');
 
 Route::get('/category/list', 'CategoryController@listAll')->name('catlist');
+Route::get('/product/list', 'ProductController@listAll')->name('productlist');
