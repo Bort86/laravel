@@ -22,13 +22,13 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        Categories <span class="caret"></span>
+                        {{trans('messages.cats')}} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('catlist')}}">List all</a></li>
                         <li class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{route('catcreate')}}">Add</a></li>
-                        <li><a class="dropdown-item" href="?????">Modify & Delete</a></li>
+                        <li><a class="dropdown-item" href="{{route('catfind')}}">Find & edit</a></li>
                     </ul>
                 </li>  
                 <li class="nav-item dropdown">
@@ -38,7 +38,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('productlist')}}">List all</a></li>
                         <li class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="?????">Add</a></li>
+                        <li><a class="dropdown-item" href="{{route('productcreate')}}">Add</a></li>
                         <li><a class="dropdown-item" href="?????">Modify & Delete</a></li>
                     </ul>
                 </li>  

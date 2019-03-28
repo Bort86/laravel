@@ -18,4 +18,35 @@ class ProductController extends Controller
 
         return view('product.list', array('arrProduct'=>$arrProduct, 'message'=> $message));
     }
+    
+    public function create(Request $request) {
+        
+        $this-> check($request);
+        
+        try {
+            //método 1: coge todos los campos del formulario
+            Product::create($request->all());
+            
+            $message = "Product created succesfully";
+           
+        } catch (\Exception $e) {
+            $message = "No product created - " . $e->getMessage();
+        }
+        return view('product.create', ['message' => $message]);
+    }
+    
+        public function check(Request $request){
+        
+        $alphabetic = "/^[a-z ]*$/i";
+        $numeric = "/^[0-9]+(\.[0-9]{1,2})?$/";
+        //$postalcode = "/^[0-9]{5}$/";
+        
+        $request->validate([
+            'name' => "required|regex:$alphabetic|min:1|max:50",
+            'description' => "nullable|string|max:100",
+            'price' => "required|min:1|regex:$numeric",
+        ]);
+        
+    }
+    
 }
