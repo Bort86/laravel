@@ -27,7 +27,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('catlist')}}">List all</a></li>
                         <li class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="?????">Add</a></li>
+                        <li><a class="dropdown-item" href="{{route('catcreate')}}">Add</a></li>
                         <li><a class="dropdown-item" href="?????">Modify & Delete</a></li>
                     </ul>
                 </li>  
