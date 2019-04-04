@@ -11,11 +11,13 @@
                 <tr class="thead-dark">
                     <th>Id</th>
                     <th>Name</th>
+                    <th>Description</th>
                 </tr>
                 @foreach ($arrCategory as $category) 
                     <tr>
-                        <td>{{ $category->id }}</td>
-                        <td>{{ $category->name }}</td>
+                        <td><a href="{{ url('/category/edit/' . $category->id) }}">{{ $category->id }}</a></td> 
+                        <td><a href="{{ url('/category/edit/' . $category->id) }}">{{ $category->name }}</a></td> 
+                        <td>{{$category->description}}</td>
                     </tr>
                 @endforeach
             </table>

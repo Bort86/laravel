@@ -39,7 +39,7 @@
                         <li><a class="dropdown-item" href="{{route('productlist')}}">List all</a></li>
                         <li class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{route('productcreate')}}">Add</a></li>
-                        <li><a class="dropdown-item" href="?????">Modify & Delete</a></li>
+                        <li><a class="dropdown-item" href="{{route('prodfind')}}">Find & Edit</a></li>
                     </ul>
                 </li>  
             </ul>

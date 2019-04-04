@@ -42,16 +42,27 @@ Route::get('/category/list', 'CategoryController@listAll')->name('catlist');
 Route::get('/product/list', 'ProductController@listAll')->name('productlist');
 
 Route::view('/category/create', 'category.create')->name('catcreate');
-
 Route::post('/category/create', 'CategoryController@create');
 
 Route::view('/product/create', 'product.create')->name('productcreate');
-
 Route::post('/product/create', 'ProductController@create');
 
 Route::view('/category/find', 'category.find')->name('catfind');
-
 Route::post('/category/find', 'CategoryController@find');
 
+Route::view('/product/find', 'product.find')->name('prodfind');
+Route::post('/product/find', 'ProductController@find');
+
 Route::view('/category/edit', 'category.edit')->name('catedit');
+Route::get('/category/edit/{id}', 'CategoryController@edit');
+
+Route::view('/product/edit', 'product.edit')->name('prodedit');
+Route::get('/product/edit/{id}', 'ProductController@edit');
+
+Route::post('/category/modify', 'CategoryController@modify');
+
+Route::post('/product/modify', 'ProductController@modify');
+
+
+
 
