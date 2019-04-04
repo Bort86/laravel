@@ -57,5 +57,25 @@ class CategoryController extends Controller {
         }
         return view('category.create', ['message' => $message]); // tmb puede ser array('message' => $message)
     }
+    
+    public function find (Request $request) {
+        $this->check_find($request);
+        
+        try {
+            $objCat = Category::findOrFail($request->id);
+            
+            //vamos a edit
+            return redirect()->to('/category/edit');
+        } catch (\Exception $ex) {   //se pone contrabarra porque Exception está fuera deñ namespace definido arriba
+            $message = "No data found " . $ex->getMessage();
+        }
+        return view('category.find', ['id'=> $request->id, 'message' => $message]);
+    }
+    
+    public function check_find(Request $request){
+        $request->validate([
+            'id' => 'required|numeric',
+        ]);
+    }
 
 }

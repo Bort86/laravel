@@ -13,7 +13,7 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="id">Id *:</label>
-                <input class="form-control" type="text" id="id" name="id" value="{{ $objCat->id ?? old('id') }}" />
+                <input class="form-control" type="text" id="id" name="id" value="{{ $id ?? old('id') }}" />
                 <label for="name">Name *:</label>
                 <input class="form-control" type="text" id="name" name="name" value="{{ old('name') }}" />
             </div>
