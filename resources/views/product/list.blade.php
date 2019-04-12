@@ -15,6 +15,7 @@
                     <th>Price</th>
                     <th>Created</th>
                     <th>Modified</th>
+                    <th>Category</th>
                 </tr>
                 @foreach ($arrProduct as $product) 
                     <tr>
@@ -24,6 +25,9 @@
                         <td>{{$product->price}}</td>
                         <td>{{$product->created_at}}</td>
                         <td>{{$product->updated_at}}</td>
+                        @isset($product->Category->name)
+                            <td>{{$product->Category->name}}</td>
+                        @endisset
                     </tr>
                 @endforeach
             </table>

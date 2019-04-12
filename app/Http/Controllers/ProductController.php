@@ -84,6 +84,7 @@ class ProductController extends Controller
                 return redirect()->to('/product/edit/' . $request->id);
             } else {
                 $objProduct = Product::where("name", "=", $request->name)->get();
+                dd($objProduct);
                 return redirect()->to('/product/edit/' . $request->id);
             }
  

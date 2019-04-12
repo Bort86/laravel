@@ -12,6 +12,7 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('products')->delete();
         factory(Product::class, 20)->create();
     }
 }
