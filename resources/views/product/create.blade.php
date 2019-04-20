@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
     <div class="card-header text-center">
-       Create category
+        Create Product
     </div>
     <div class="card-body">
         <form method="POST" action="{{ url('/product/create') }}">
@@ -18,6 +18,13 @@
                 <textarea class="form-control" id="description" name="description">{{ old('description') }}</textarea>
                 <label for="price">Price *:</label>
                 <input class="form-control" type="text" id="price" name="price" value="{{ old('price') }}" />
+                <label for="category_id">Category *:</label>
+                <select name="category_id" id="category_id">
+                    @foreach($categories as $category )
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+
             </div>
 
             <div class="form-group">
@@ -34,20 +41,20 @@
 @stop
 
 @section('message')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
-    @isset($message)
-        <div class="alert alert-warning">
-            {{ $message }}
-        </div>
-    @endisset
+@isset($message)
+<div class="alert alert-warning">
+    {{ $message }}
+</div>
+@endisset
 @stop
 

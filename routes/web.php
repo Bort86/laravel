@@ -44,7 +44,14 @@ Route::get('/product/list', 'ProductController@listAll')->name('productlist');
 Route::view('/category/create', 'category.create')->name('catcreate');
 Route::post('/category/create', 'CategoryController@create');
 
-Route::view('/product/create', 'product.create')->name('productcreate');
+Route::view('/product/create', 'product.create', ['categories' => \App\Category::all()])->name('productcreate');
+
+
+//Route::get('/product/create', function () {
+//    $categories = \App\Category::all();
+//    return view('product.create')->with(['categories' => $categories]);
+//})->name('productcreate');
+
 Route::post('/product/create', 'ProductController@create');
 
 Route::view('/category/find', 'category.find')->name('catfind');

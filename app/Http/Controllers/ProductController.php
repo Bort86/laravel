@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Product;
+use App\Category;
 
 use Illuminate\Support\Facades\Session;
 
@@ -17,9 +18,10 @@ class ProductController extends Controller
         //$postalcode = "/^[0-9]{5}$/";
         
         $request->validate([
-            'name' => "required|regex:$alphabetic|min:1|max:50",
+            'name' => "required|unique:products|regex:$alphabetic|min:1|max:50",
             'description' => "nullable|string|max:100",
             'price' => "required|min:1|regex:$decimal",
+            'category_id' => "required",
         ]);
         
     }
@@ -69,9 +71,10 @@ class ProductController extends Controller
             $message = "Product created succesfully";
            
         } catch (\Exception $e) {
+            
             $message = "No product created - " . $e->getMessage();
         }
-        return view('product.create', ['message' => $message]);
+        return view('product.create', ['message' => $message, 'categories' => \App\Category::all()]);
     }
     
     

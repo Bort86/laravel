@@ -12,12 +12,16 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Description</th>
+                     <th>Created</th>
+                    <th>Modified</th>
                 </tr>
                 @foreach ($arrCategory as $category) 
                     <tr>
                         <td><a href="{{ url('/category/edit/' . $category->id) }}">{{ $category->id }}</a></td> 
                         <td><a href="{{ url('/category/edit/' . $category->id) }}">{{ $category->name }}</a></td> 
                         <td>{{$category->description}}</td>
+                        <td>{{$category->created_at}}</td>
+                        <td>{{$category->updated_at}}</td>
                     </tr>
                 @endforeach
             </table>
